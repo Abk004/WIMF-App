@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_map"
+    app:startDestination="@id/fridgeListFragment">
+
+    <fragment
+        android:id="@+id/fridgeListFragment"
+        android:name="com.example.wimf1.FridgeListFragment"
+        android:label="fragment_fridge_list"
+        tools:layout="@layout/fragment_fridge_list" >
+        <action
+            android:id="@+id/action_fridgeListFragment_to_fridgeAddFragment"
+            app:destination="@id/fridgeAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fridgeAddFragment"
+        android:name="com.example.wimf1.FridgeAddFragment"
+        android:label="fragment_fridge_add"
+        tools:layout="@layout/fragment_fridge_add" />
+</navigation>
