@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "790311563511",
+    "project_id": "wimf1-84d4a",
+    "storage_bucket": "wimf1-84d4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790311563511:android:b3142b9875b933819363f2",
+        "android_client_info": {
+          "package_name": "com.example.wimf1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY_QsgS63iwguxQzlYWDzVJhsqM7hAIS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
