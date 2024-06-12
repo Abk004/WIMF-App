@@ -8,12 +8,15 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 
 import androidx.navigation.Navigation
+import com.example.wimf1.databinding.FragmentFridgeListBinding
+import com.example.wimf1.databinding.FragmentGroceryListBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class FridgeListFragment : Fragment() {
 
-    //private lateinit var binding: FridgeListDataBinding
+    private var _binding: FragmentFridgeListBinding? = null
+    private val binding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,15 +26,17 @@ class FridgeListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fridge_list, container, false)
+        //return inflater.inflate(R.layout.fragment_fridge_list, container, false)
+        _binding = FragmentFridgeListBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
+        binding.floatingActionButton.setOnClickListener {
             AddFridgeItem(view)
         }
 
@@ -43,6 +48,11 @@ class FridgeListFragment : Fragment() {
     fun AddFridgeItem(view: View) {
         val navController = Navigation.findNavController(view)
         navController.navigate(R.id.action_fridgeListFragment_to_fridgeAddFragment)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

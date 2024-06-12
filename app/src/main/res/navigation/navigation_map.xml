@@ -13,10 +13,27 @@
         <action
             android:id="@+id/action_fridgeListFragment_to_fridgeAddFragment"
             app:destination="@id/fridgeAddFragment" />
+        <action
+            android:id="@+id/action_fridgeListFragment_to_groceryListFragment"
+            app:destination="@id/groceryListFragment" />
     </fragment>
     <fragment
         android:id="@+id/fridgeAddFragment"
         android:name="com.example.wimf1.FridgeAddFragment"
         android:label="fragment_fridge_add"
         tools:layout="@layout/fragment_fridge_add" />
+    <fragment
+        android:id="@+id/groceryListFragment"
+        android:name="com.example.wimf1.GroceryListFragment"
+        android:label="fragment_grocerie_list"
+        tools:layout="@layout/fragment_grocery_list" >
+        <action
+            android:id="@+id/action_groceryListFragment_to_groceryAddFragment"
+            app:destination="@id/groceryAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groceryAddFragment"
+        android:name="com.example.wimf1.GroceryAddFragment"
+        android:label="fragment_grocery_add"
+        tools:layout="@layout/fragment_grocery_add" />
 </navigation>
