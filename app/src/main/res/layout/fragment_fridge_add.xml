@@ -5,10 +5,64 @@
     android:layout_height="match_parent"
     tools:context=".FridgeAddFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Add" />
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fridge Name"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextFridgeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Insert the fridge name"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextFridgeDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description of the fridge"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:minLines="3"
+            android:maxLines="5" />
+
+        <Button
+            android:id="@+id/buttonSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_marginTop="16dp"
+            android:minHeight="48dp"/>
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:layout_marginTop="16dp"
+            android:minHeight="48dp"/>
+
+    </LinearLayout>
 
 </FrameLayout>

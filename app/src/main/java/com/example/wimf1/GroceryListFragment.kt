@@ -1,34 +1,47 @@
 package com.example.wimf1
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wimf1.databinding.FragmentGroceryListBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class GroceryListFragment : Fragment() {
 
-    private var _binding: FragmentGroceryListBinding? = null
-    private val binding get() = _binding!!
+    val db = Firebase.firestore
+    private var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
+    private lateinit var binding: FragmentGroceryListBinding
 
+    val viewModel: GroceryListViewModel by activityViewModels()
+
+    private var fridgeName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let { bundle ->
+            fridgeName = bundle.getString("fridgeName").toString()
+        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_grocery_list, container, false)
-        _binding = FragmentGroceryListBinding.inflate(inflater, container, false)
+
+        binding = FragmentGroceryListBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -41,9 +54,25 @@ class GroceryListFragment : Fragment() {
         }
 
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
-        actionBar?.setDisplayHomeAsUpEnabled(false)
-        actionBar?.setDisplayShowHomeEnabled(false)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setDisplayShowHomeEnabled(true)
+        actionBar?.title = "Grocery List of $fridgeName"
 
+
+        binding.GroceryLisRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        viewModel.groceries.observe(viewLifecycleOwner) { _ ->
+            binding.GroceryLisRecyclerView.adapter =
+                GroceryListRecycleView(requireContext(), viewModel)
+        }
+
+        viewModel.getGrocery(fridgeName)
+
+
+        (activity as AppCompatActivity?)!!.findViewById<Toolbar>(R.id.my_toolbar)
+            ?.setNavigationOnClickListener {
+                activity?.onBackPressedDispatcher?.onBackPressed()
+            }
 
     }
 
@@ -53,8 +82,5 @@ class GroceryListFragment : Fragment() {
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 }

@@ -23,9 +23,11 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     val providers = arrayListOf(
-        AuthUI.IdpConfig.EmailBuilder().build())
+        AuthUI.IdpConfig.EmailBuilder().build(),
+        AuthUI.IdpConfig.GoogleBuilder().build()
+    )
 
-    lateinit var signInIntent : Intent
+    lateinit var signInIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,5 +59,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
 
-    fun logIn(view: View) {signInLauncher.launch(signInIntent)}
+    fun logIn(view: View) {
+        signInLauncher.launch(signInIntent)
+    }
 }

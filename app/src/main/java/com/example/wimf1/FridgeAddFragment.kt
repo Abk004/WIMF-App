@@ -7,47 +7,89 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.activityViewModels
 import com.example.wimf1.databinding.FragmentFridgeAddBinding
 import com.example.wimf1.databinding.FragmentFridgeListBinding
 
 class FridgeAddFragment : Fragment() {
 
-    private var _binding: FragmentFridgeAddBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentFridgeAddBinding
 
+    val viewModel: FridgeListViewModel by activityViewModels()
+
+    var isEdit = false
+    var fridgeName = ""
+    var oldFridgeName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_fridge_add, container, false)
-        _binding = FragmentFridgeAddBinding.inflate(inflater, container, false)
+        binding = FragmentFridgeAddBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        arguments?.let { bundle ->
+            isEdit = bundle.getBoolean("isEdit")
+            if (isEdit) {
+                oldFridgeName = bundle.getString("fridgeName").toString()
+                binding.editTextFridgeName.setText(bundle.getString("fridgeName"))
+                binding.editTextFridgeDescription.setText(bundle.getString("fridgeDescription"))
+            }
+        }
 
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setDisplayShowHomeEnabled(true)
-        //actionBar?.title = "Create Fridge Item"
+
 
         (activity as AppCompatActivity?)!!.findViewById<Toolbar>(R.id.my_toolbar)
             ?.setNavigationOnClickListener {
                 activity?.onBackPressedDispatcher?.onBackPressed()
             }
+
+        if (isEdit) {
+            binding.buttonSubmit.text = "Update"
+            binding.buttonDelete.visibility = View.VISIBLE
+            actionBar?.title = "Update Fridge"
+
+
+            fridgeName = binding.editTextFridgeName.text.toString()
+            binding.buttonDelete.setOnClickListener {
+                viewModel.deleteFridge(fridgeName)
+                activity?.onBackPressed()
+            }
+        } else {
+            binding.buttonSubmit.text = "Add"
+            binding.buttonDelete.visibility = View.GONE
+            actionBar?.title = "Add Fridge"
+        }
+
+
+        binding.buttonSubmit.setOnClickListener {
+
+            val fridge = FridgeStructure(
+                binding.editTextFridgeName.text.toString(),
+                binding.editTextFridgeDescription.text.toString()
+            )
+
+            if (isEdit) {
+                viewModel.updateFridge(fridge, requireContext(), oldFridgeName)
+            } else {
+                viewModel.addFridge(fridge, requireContext())
+            }
+
+            activity?.onBackPressed()
+        }
+
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 }
