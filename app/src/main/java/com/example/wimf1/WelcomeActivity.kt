@@ -39,6 +39,13 @@ class WelcomeActivity : AppCompatActivity() {
             insets
         }
 
+        if (FirebaseAuth.getInstance().currentUser?.uid != null) {
+            val user = FirebaseAuth.getInstance().currentUser
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("USER", user)
+            startActivity(intent)
+        }
+
 
         signInIntent = AuthUI.getInstance()
             .createSignInIntentBuilder()
