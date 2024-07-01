@@ -46,7 +46,12 @@ class GroceryAddFragment : Fragment() {
             activity?.onBackPressed()
 
         }
+
         binding.buttonSelectDate.setOnClickListener {
+            showDatePickerDialog()
+        }
+
+        binding.editTextExpirationDate.setOnClickListener {
             showDatePickerDialog()
         }
 
@@ -64,6 +69,7 @@ class GroceryAddFragment : Fragment() {
         binding.buttonDecrement.setOnClickListener {
             decrementQuantity()
         }
+
 
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
