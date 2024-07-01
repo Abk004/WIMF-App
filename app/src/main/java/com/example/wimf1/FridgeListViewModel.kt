@@ -53,27 +53,33 @@ class FridgeListViewModel : ViewModel() {
     fun updateFridge(fridge: FridgeStructure, requireContext: Context, oldFridgeName: String) {
         val collection = db.collection(FirebaseAuth.getInstance().currentUser!!.uid)
 
-        if (fridge.name == oldFridgeName) {
-            collection.document(fridge.name)
-                .set(fridge)
-
-        } else {
-            collection.document(oldFridgeName).get().addOnSuccessListener {
-                collection.document(fridge.name).set(fridge).addOnSuccessListener {
-                    collection.document(oldFridgeName).collection("Grocery").get()
-                        .addOnSuccessListener { result ->
-                            for (document in result) {
-                                val grocery = GroceryStructure(
-                                    document.data["name"].toString(),
-                                    document.data["expirationDate"].toString(),
-                                    document.data["quantity"].toString(),
-                                    document.data["description"].toString(),
-                                )
-                                collection.document(fridge.name).collection("Grocery")
-                                    .document(grocery.name).set(grocery)
+        collection.document(fridge.name).get().addOnSuccessListener {
+            if (fridge.name == oldFridgeName) {
+                collection.document(fridge.name)
+                    .set(fridge).addOnSuccessListener {
+                        getFridges()
+                    }
+            } else if (it.exists()) {
+                Toast.makeText(requireContext, "Fridge already exist", Toast.LENGTH_SHORT).show()
+            } else {
+                collection.document(oldFridgeName).get().addOnSuccessListener {
+                    collection.document(fridge.name).set(fridge).addOnSuccessListener {
+                        collection.document(oldFridgeName).collection("Grocery").get()
+                            .addOnSuccessListener { result ->
+                                for (document in result) {
+                                    val grocery = GroceryStructure(
+                                        document.data["name"].toString(),
+                                        document.data["expirationDate"].toString(),
+                                        document.data["quantity"].toString(),
+                                        document.data["description"].toString(),
+                                    )
+                                    collection.document(fridge.name).collection("Grocery")
+                                        .document(grocery.name).set(grocery)
+                                }
+                                collection.document(oldFridgeName).delete()
+                                getFridges()
                             }
-                            collection.document(oldFridgeName).delete()
-                        }
+                    }
                 }
             }
         }

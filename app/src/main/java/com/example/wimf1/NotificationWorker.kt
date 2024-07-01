@@ -27,8 +27,8 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters) :
     private fun sendNotification() {
         val builder = NotificationCompat.Builder(applicationContext, MainActivity.CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("Uno o più prodotti stanno per scadere!")
-            .setContentText("Vi consigliamo di controllare la data di scadenza dei prodotti presenti nei suoi frigi.")
+            .setContentTitle("One or more products are about to expire!")
+            .setContentText("we advise you to check the expiry date of your products.")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
 
         with(NotificationManagerCompat.from(applicationContext)) {
