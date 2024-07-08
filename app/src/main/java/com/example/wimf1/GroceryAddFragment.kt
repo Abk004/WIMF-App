@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.wimf1.databinding.FragmentFridgeListBinding
 import com.example.wimf1.databinding.FragmentGroceryAddBinding
 
@@ -19,13 +20,14 @@ class GroceryAddFragment : Fragment() {
 
     private lateinit var binding: FragmentGroceryAddBinding
     private var saveBarCode = false
+    private var isBarcode = false
+    private var barcode = ""
 
     private val viewModel: GroceryListViewModel by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -36,18 +38,26 @@ class GroceryAddFragment : Fragment() {
 
         binding.buttonSubmit.setOnClickListener() {
 
-            viewModel.addGrocery(
-                GroceryStructure(
-                    binding.editTextProductName.text.toString(),
-                    binding.editTextExpirationDate.text.toString(),
-                    binding.editTextQuantity.text.toString(),
-                    binding.editTextDescription.text.toString()
-                )
+            val grocery = GroceryStructure(
+                binding.editTextProductName.text.toString(),
+                binding.editTextExpirationDate.text.toString(),
+                binding.editTextQuantity.text.toString(),
+                binding.editTextDescription.text.toString()
             )
 
-            // TODO: add in database the barcode info if saveBarCode is true
+            viewModel.addGrocery(grocery)
 
-            activity?.onBackPressed()
+            try {
+
+                if (saveBarCode) {
+                    viewModel.addGroceryBarCode(grocery, barcode)
+                }
+            } catch (e: Exception) {
+                Log.d("GroceryAddFragment", "Error: $e")
+            }
+
+
+            findNavController().navigate(R.id.action_groceryAddFragment_to_groceryListFragment)
 
         }
 
@@ -74,13 +84,20 @@ class GroceryAddFragment : Fragment() {
             decrementQuantity()
         }
 
+        binding.editTextBarcode.visibility = View.GONE
+
         arguments?.let { bundle ->
-            if (bundle.getBoolean("isBarcode")){
-                    if (bundle.getBoolean("inDatabase")){
+            isBarcode = bundle.getBoolean("isBarcode")
+            if (isBarcode){
+                if (bundle.getBoolean("inDatabase")){
                     binding.editTextProductName.setText(bundle.getString("product_name"))
                 } else {
                     saveBarCode = true
                 }
+                barcode = bundle.getString("product_barcode").toString()
+
+                binding.editTextBarcode.visibility = View.VISIBLE
+                binding.editTextBarcode.setText(barcode)
             }
         }
 
@@ -93,6 +110,8 @@ class GroceryAddFragment : Fragment() {
             ?.setNavigationOnClickListener {
                 activity?.onBackPressedDispatcher?.onBackPressed()
             }
+
+
     }
 
     private fun decrementQuantity() {

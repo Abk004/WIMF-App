@@ -29,8 +29,6 @@ class FridgeListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("FridgeListFragment", "OnCreate")
-
     }
 
     override fun onCreateView(

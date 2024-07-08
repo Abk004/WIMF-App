@@ -35,7 +35,11 @@
         android:id="@+id/groceryAddFragment"
         android:name="com.example.wimf1.GroceryAddFragment"
         android:label="fragment_grocery_add"
-        tools:layout="@layout/fragment_grocery_add" />
+        tools:layout="@layout/fragment_grocery_add" >
+        <action
+            android:id="@+id/action_groceryAddFragment_to_groceryListFragment"
+            app:destination="@id/groceryListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/groceryAddMethodSelectionFragment"
         android:name="com.example.wimf1.GroceryAddMethodSelectionFragment"
@@ -54,5 +58,8 @@
         <action
             android:id="@+id/action_groceryAddBarCode_to_groceryAddFragment"
             app:destination="@id/groceryAddFragment" />
+        <action
+            android:id="@+id/action_groceryAddBarCode_to_groceryAddMethodSelectionFragment2"
+            app:destination="@id/groceryAddMethodSelectionFragment" />
     </fragment>
 </navigation>

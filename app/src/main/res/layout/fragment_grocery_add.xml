@@ -7,6 +7,15 @@
     android:padding="16dp">
 
     <EditText
+        android:id="@+id/editTextBarcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Barcode"/>
+
+
+
+    <EditText
         android:id="@+id/editTextProductName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

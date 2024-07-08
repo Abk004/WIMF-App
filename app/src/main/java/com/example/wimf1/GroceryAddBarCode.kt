@@ -112,7 +112,7 @@ class GroceryAddBarCode : Fragment() {
                             .addOnSuccessListener {
                                 val bundle = Bundle()
                                 bundle.putBoolean("isBarcode", true)
-                                if (it != null) {
+                                if (it.exists()) {
                                     bundle.putBoolean("inDatabase", true)
                                     bundle.putString("product_barcode", intentData)
                                     bundle.putString("product_name", it.getString("name"))

@@ -66,6 +66,8 @@ class GroceryListFragment : Fragment() {
                 GroceryListRecycleView(requireContext(), viewModel)
         }
 
+        if (fridgeName == "") fridgeName = viewModel.fridgeName
+
         viewModel.getGrocery(fridgeName)
 
 

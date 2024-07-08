@@ -9,13 +9,21 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
+
+
+
 class GroceryListViewModel : ViewModel() {
+
+    data class BarcodeData(
+        val barcode: String,
+        val name: String
+    )
 
     private val db = Firebase.firestore
 
     private val _groceries = MutableLiveData<List<GroceryStructure>>()
 
-    private var fridgeName: String = ""
+    var fridgeName: String = ""
     private var groceryName: String = ""
 
     val groceries: LiveData<List<GroceryStructure>>
@@ -51,6 +59,12 @@ class GroceryListViewModel : ViewModel() {
             .set(grocery)
     }
 
+    fun addGroceryBarCode(grocery: GroceryStructure, barcode: String) {
+        db.collection("barcodes")
+            .document(barcode)
+            .set(BarcodeData(barcode, grocery.name))
+    }
+
     fun deleteGroceryItem(groceryName: String) {
         db.collection(FirebaseAuth.getInstance().currentUser!!.uid)
             .document(fridgeName)
@@ -75,3 +89,4 @@ class GroceryListViewModel : ViewModel() {
 
     }
 }
+
