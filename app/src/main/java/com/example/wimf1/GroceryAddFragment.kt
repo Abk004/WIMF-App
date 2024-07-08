@@ -3,6 +3,7 @@ package com.example.wimf1
 import android.app.DatePickerDialog
 import android.icu.util.Calendar
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import com.example.wimf1.databinding.FragmentGroceryAddBinding
 class GroceryAddFragment : Fragment() {
 
     private lateinit var binding: FragmentGroceryAddBinding
+    private var saveBarCode = false
 
     private val viewModel: GroceryListViewModel by activityViewModels()
 
@@ -42,6 +44,8 @@ class GroceryAddFragment : Fragment() {
                     binding.editTextDescription.text.toString()
                 )
             )
+
+            // TODO: add in database the barcode info if saveBarCode is true
 
             activity?.onBackPressed()
 
@@ -70,6 +74,15 @@ class GroceryAddFragment : Fragment() {
             decrementQuantity()
         }
 
+        arguments?.let { bundle ->
+            if (bundle.getBoolean("isBarcode")){
+                    if (bundle.getBoolean("inDatabase")){
+                    binding.editTextProductName.setText(bundle.getString("product_name"))
+                } else {
+                    saveBarCode = true
+                }
+            }
+        }
 
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)

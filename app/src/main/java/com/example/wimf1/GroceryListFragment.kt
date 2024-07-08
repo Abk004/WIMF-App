@@ -78,7 +78,7 @@ class GroceryListFragment : Fragment() {
 
     private fun addGroceryItem(view: View) {
         val navController = Navigation.findNavController(view)
-        navController.navigate(R.id.action_groceryListFragment_to_groceryAddFragment)
+        navController.navigate(R.id.action_groceryListFragment_to_groceryAddMethodSelectionFragment)
 
     }
 
