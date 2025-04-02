@@ -1,6 +1,8 @@
 # What's In My Fridge (W.I.M.F)
 
-![W.I.M.F Logo](logo.png)
+<p align="center">
+  <img src="logo.png" alt="W.I.M.F Logo" width="200">
+</p>
 
 W.I.M.F è un'applicazione Android progettata per aiutarti a monitorare gli alimenti presenti in casa, tenere traccia delle date di scadenza e ridurre lo spreco alimentare.
 
