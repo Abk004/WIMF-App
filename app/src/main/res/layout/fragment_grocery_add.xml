@@ -11,8 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="Barcode"/>
-
+        android:hint="@string/barcode"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
 
 
     <EditText
@@ -20,74 +21,76 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="Product Name"/>
+        android:hint="@string/product_name" />
 
     <EditText
         android:id="@+id/editTextDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="Description"/>
+        android:hint="@string/descrip" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/editTextExpirationDate"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:hint="Expiration Date"
-            android:inputType="none"
-            android:focusable="false"/>
+            android:layout_weight="1"
+            android:focusable="false"
+            android:hint="@string/exp_date"
+            android:inputType="none" />
 
         <Button
             android:id="@+id/buttonSelectDate"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Date"/>
+            android:layout_height="match_parent"
+            android:text="@string/select_date" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/editTextQuantity"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:hint="Quantity"
-            android:inputType="number"
+            android:layout_weight="1"
+            android:focusable="false"
             android:gravity="center"
-            android:text="0"
-            android:focusable="false"/>
+            android:hint="@string/quantity"
+            android:inputType="number"
+            android:text="0" />
 
         <Button
             android:id="@+id/buttonIncrement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"/>
+            android:text="+" />
 
         <Button
             android:id="@+id/buttonDecrement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"/>
+            android:text="-" />
     </LinearLayout>
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"/>
+        android:layout_height="70dp"
+        android:text="@string/add"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
 

@@ -47,7 +47,7 @@ class GroceryListViewModel : ViewModel() {
                             )
                     )
                 }
-                _groceries.postValue(grocery)
+                _groceries.postValue(grocery.sortedBy { it.expirationDate })
             }
     }
 

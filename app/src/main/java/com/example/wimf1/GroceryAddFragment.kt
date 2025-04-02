@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.wimf1.databinding.FragmentFridgeListBinding
 import com.example.wimf1.databinding.FragmentGroceryAddBinding
@@ -104,10 +105,11 @@ class GroceryAddFragment : Fragment() {
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setDisplayShowHomeEnabled(true)
-        actionBar?.title = "Add Product"
+        actionBar?.title = getString(R.string.add_product)
 
         (activity as AppCompatActivity?)!!.findViewById<Toolbar>(R.id.my_toolbar)
             ?.setNavigationOnClickListener {
+
                 activity?.onBackPressedDispatcher?.onBackPressed()
             }
 

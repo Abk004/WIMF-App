@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fridge Name"
+            android:text="@string/fridge_name"
             android:textSize="18sp"
             android:layout_marginBottom="8dp"/>
 
@@ -22,7 +22,7 @@
             android:id="@+id/editTextFridgeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Insert the fridge name"
+            android:hint="@string/insert_fridge"
             android:inputType="text"
             android:minHeight="48dp"
             android:padding="12dp"/>
@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="@string/descrip"
             android:textSize="18sp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"/>
@@ -39,7 +39,7 @@
             android:id="@+id/editTextFridgeDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description of the fridge"
+            android:hint="@string/description"
             android:inputType="textMultiLine"
             android:minHeight="48dp"
             android:padding="12dp"
@@ -50,7 +50,7 @@
             android:id="@+id/buttonSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add"
+            android:text="@string/add"
             android:layout_marginTop="16dp"
             android:minHeight="48dp"/>
 
@@ -58,7 +58,7 @@
             android:id="@+id/buttonDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Delete"
+            android:text="@string/delete"
             android:backgroundTint="@android:color/holo_red_light"
             android:layout_marginTop="16dp"
             android:minHeight="48dp"/>

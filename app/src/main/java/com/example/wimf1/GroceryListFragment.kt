@@ -56,7 +56,7 @@ class GroceryListFragment : Fragment() {
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setDisplayShowHomeEnabled(true)
-        actionBar?.title = "Grocery List of $fridgeName"
+        actionBar?.title = getString(R.string.grocery_list, fridgeName)
 
 
         binding.GroceryLisRecyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -81,6 +81,12 @@ class GroceryListFragment : Fragment() {
     private fun addGroceryItem(view: View) {
         val navController = Navigation.findNavController(view)
         navController.navigate(R.id.action_groceryListFragment_to_groceryAddMethodSelectionFragment)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getGrocery(fridgeName)
 
     }
 

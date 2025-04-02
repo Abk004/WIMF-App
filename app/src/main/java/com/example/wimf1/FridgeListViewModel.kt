@@ -40,7 +40,8 @@ class FridgeListViewModel : ViewModel() {
 
         collection.document(fridge.name).get().addOnSuccessListener {
             if (it.exists()) {
-                Toast.makeText(context, "Fridge already exist", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.fridge_exist), Toast.LENGTH_SHORT).show();
+
             } else {
                 collection.document(fridge.name)
                     .set(fridge).addOnSuccessListener {
@@ -60,7 +61,7 @@ class FridgeListViewModel : ViewModel() {
                         getFridges()
                     }
             } else if (it.exists()) {
-                Toast.makeText(requireContext, "Fridge already exist", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext, requireContext.getString(R.string.fridge_exist), Toast.LENGTH_SHORT).show();
             } else {
                 collection.document(oldFridgeName).get().addOnSuccessListener {
                     collection.document(fridge.name).set(fridge).addOnSuccessListener {

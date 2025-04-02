@@ -59,19 +59,22 @@ class GroceryListRecycleView(
             view.GroceryItemListTextViewExpiryDate.setTextColor(mContext.getColor(R.color.red))
         } else if (cal.timeInMillis - System.currentTimeMillis() < 7 * 24 * 60 * 60 * 1000) {
             view.GroceryItemListTextViewExpiryDate.setTextColor(mContext.getColor(R.color.yellow))
-        } else {
-            view.GroceryItemListTextViewExpiryDate.setTextColor(mContext.getColor(R.color.green))
         }
+
+        val delete= mContext.getString(R.string.delete)
+        val message= mContext.getString(R.string.popup_mssg)
+        val yes= mContext.getString(R.string.yes)
+        val cancel= mContext.getString(R.string.cancel)
 
         view.cardView.setOnLongClickListener {
             AlertDialog.Builder(mContext)
-                .setTitle("Delete Grocery Item")
-                .setMessage("Are you sure you want to delete this item?")
-                .setPositiveButton("yes") { dialog, _ ->
+                .setTitle(delete)
+                .setMessage(message)
+                .setPositiveButton(yes) { dialog, _ ->
                     viewModel.deleteGroceryItem(grocery.name)
                     dialog.dismiss()
                 }
-                .setNegativeButton("Cancel") { dialog, _ ->
+                .setNegativeButton(cancel) { dialog, _ ->
                     dialog.dismiss()
                 }
                 .show()

@@ -73,7 +73,7 @@ class GroceryAddMethodSelectionFragment : Fragment() {
         val actionBar = (activity as AppCompatActivity?)!!.supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setDisplayShowHomeEnabled(true)
-        actionBar?.title = "Choose method to add product"
+        actionBar?.title = getString(R.string.method_add)
 
         (activity as AppCompatActivity?)!!.findViewById<Toolbar>(R.id.my_toolbar)
             ?.setNavigationOnClickListener {

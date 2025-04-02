@@ -1,5 +1,6 @@
 package com.example.wimf1
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,6 +34,7 @@ class FridgeAddFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -56,9 +58,9 @@ class FridgeAddFragment : Fragment() {
             }
 
         if (isEdit) {
-            binding.buttonSubmit.text = "Update"
+            binding.buttonSubmit.text = getString(R.string.update)
             binding.buttonDelete.visibility = View.VISIBLE
-            actionBar?.title = "Update Fridge"
+            actionBar?.title = getString(R.string.update_fridge)
 
 
             fridgeName = binding.editTextFridgeName.text.toString()
@@ -67,9 +69,9 @@ class FridgeAddFragment : Fragment() {
                 activity?.onBackPressed()
             }
         } else {
-            binding.buttonSubmit.text = "Add"
+            binding.buttonSubmit.text = getString(R.string.add)
             binding.buttonDelete.visibility = View.GONE
-            actionBar?.title = "Add Fridge"
+            actionBar?.title = getString(R.string.add_fridge)
         }
 
 

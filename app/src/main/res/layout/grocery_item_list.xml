@@ -10,92 +10,76 @@
         android:id="@+id/card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
-
-    <LinearLayout
-
-        android:id="@+id/cardView"
-        android:foreground="?attr/selectableItemBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
-        android:layout_margin="8dp"
-        android:layout_marginTop="4dp"
-        android:clickable="true">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/GroceryItemListTextViewName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product Name"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/GroceryItemListTextViewDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Description" />
-
-
-            <TextView
-                android:id="@+id/GroceryItemListTextViewQuantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Quantity" />
-
-            <TextView
-                android:id="@+id/GroceryItemListTextViewExpiryDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Expiry Date" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/GroceryItemListTextViewName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_name"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/GroceryItemListTextViewDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/descrip" />
+
+                <TextView
+                    android:id="@+id/GroceryItemListTextViewQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/quantity" />
+
+                <TextView
+                    android:id="@+id/GroceryItemListTextViewExpiryDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/exp_date" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/GroceryItemListDecrementButton"
                 android:layout_width="53dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_margin="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:padding="16dp"
+                android:layout_marginEnd="16dp"
                 android:backgroundTint="#CBC3E3"
-                android:textColor="#6C04D5"
-                android:textStyle="bold"
                 android:text="-"
-                android:textSize="15sp" />
-        </LinearLayout>
+                android:textColor="#6C04D5"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

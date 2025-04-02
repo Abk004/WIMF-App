@@ -1,12 +1,10 @@
 package com.example.wimf1
 
 import android.content.Context
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.firebase.ui.auth.AuthUI
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
@@ -25,10 +23,13 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters) :
 
     @Suppress("MissingPermission")
     private fun sendNotification() {
+        val title = applicationContext.getString(R.string.notif_title)
+        val text = applicationContext.getString(R.string.notif_text)
+
         val builder = NotificationCompat.Builder(applicationContext, MainActivity.CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("One or more products are about to expire!")
-            .setContentText("we advise you to check the expiry date of your products.")
+            .setContentTitle(title)
+            .setContentText(text)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
 
         with(NotificationManagerCompat.from(applicationContext)) {
@@ -58,6 +59,7 @@ class NotificationWorker(appContext: Context, workerParams: WorkerParameters) :
                                 if (cal.timeInMillis - System.currentTimeMillis() < 24 * 60 * 60 * 1000) {
                                     sendNotification()
                                 }
+
                             }
                         }
                 }

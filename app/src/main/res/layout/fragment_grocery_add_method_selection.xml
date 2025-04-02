@@ -3,18 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="16dp">
 
+    <!-- Button per l'inserimento manuale dei dati -->
     <Button
         android:id="@+id/buttonManualEntry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter data manually" />
+        android:layout_width="376dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/manual_entry"
+        android:textSize="16sp" />
 
+    <!-- Button per la scansione del codice a barre -->
     <Button
         android:id="@+id/buttonBarcodeScan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Scan barcode" />
+        android:layout_width="376dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/barcode_entry"
+        android:textSize="16sp" />
 </LinearLayout>

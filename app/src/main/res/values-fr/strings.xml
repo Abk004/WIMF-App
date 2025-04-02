@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WIMF</string>
+    <string name="log_in">Se connecter</string>
+    <string name="welcom_mssg">Bienvenue chez W.I.M.F</string>
+    <string name="intro_mssg">\"What\'s in My Fridge\" est une application conviviale conçue pour vous aider à gérer et organiser efficacement le contenu de votre réfrigérateur.</string>
+    <string name="fridge_name">Nom du réfrigérateur</string>
+    <string name="insert_fridge">Insérez le nom du réfrigérateur</string>
+    <string name="descrip">Description</string>
+    <string name="description">Description du réfrigérateur</string>
+    <string name="add">Ajouter</string>
+    <string name="delete">Supprimer</string>
+    <string name="fridge_list">Liste des réfrigérateurs :</string>
+    <string name="barcode">Code à barre</string>
+    <string name="product_name">Nom du produit</string>
+    <string name="exp_date">Date d\'expiration</string>
+    <string name="select_date">Sélectionner une date</string>
+    <string name="quantity">Quantité</string>
+    <string name="scan_barcode">Scanner un code-barres</string>
+    <string name="manual_entry">Saisir les données manuellement</string>
+    <string name="barcode_entry">Scanner le code-barres</string>
+    <string name="product_list">Liste de produits</string>
+    <string name="add_product">Ajouter un produit</string>
+    <string name="update">Mettre à jour</string>
+    <string name="update_fridge">Mettre à jour le réfrigérateur</string>
+    <string name="add_fridge">Ajouter un réfrigérateur</string>
+    <string name="fridge_exist">Un frigo avec le meme nom existe déjà</string>
+    <string name="method_add">Choisissez la méthode pour ajouter le produit</string>
+    <string name="grocery_list">Liste de produits de %1$s</string>
+    <string name="delete_product">supprimer le produit</string>
+    <string name="popup_mssg">Êtes-vous sûr de bien vouloir supprimer cet élément?</string>
+    <string name="yes">Oui</string>
+    <string name="cancel">Annuler</string>
+    <string name="notif_title">Un ou plusieurs produits sont sur le point d\'expirer!</string>
+    <string name="notif_text">nous vous conseillons de vérifier la date de péremption de vos produits.</string>
+    <string-array name="languages">
+        <item>🇺🇸  Anglais</item>
+        <item>🇸🇦  Arabe</item>
+        <item>🇫🇷  Français</item>
+        <item>🇮🇹  Italien</item>
+    </string-array>
+    <string name="log_out">Se déconnecter</string>
+</resources>

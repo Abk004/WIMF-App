@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WIMF</string>
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="welcom_mssg">مرحبًا بك في W.I.M.F</string>
+    <string name="intro_mssg">هو تطبيق سهل الاستخدام مصمم لمساعدتك على إدارة وتنظيم محتويات ثلاجتك بكفاءة  \"What’s in My Fridge\"</string>
+    <string name="fridge_name">اسم الثلاجة</string>
+    <string name="insert_fridge">أدخل اسم الثلاجة</string>
+    <string name="descrip">وصف</string>
+    <string name="description">وصف الثلاجة</string>
+    <string name="add">يضيف</string>
+    <string name="delete">يمسح</string>
+    <string name="fridge_list">قائمة الثلاجات:</string>
+    <string name="barcode">الباركود</string>
+    <string name="product_name">اسم المنتج</string>
+    <string name="exp_date">تاريخ انتهاء الصلاحية</string>
+    <string name="select_date">حدد تاريخ</string>
+    <string name="quantity">كمية</string>
+    <string name="scan_barcode">مسح الباركود</string>
+    <string name="manual_entry">إدخال البيانات يدويا</string>
+    <string name="barcode_entry">مسح الرمز الشريطى</string>
+    <string name="product_list">قائمة المنتجات</string>
+    <string name="add_product">أضف منتج</string>
+    <string name="update">تحديث</string>
+    <string name="update_fridge">تحديث الثلاجة</string>
+    <string name="add_fridge">أضف الثلاجة</string>
+    <string name="fridge_exist">توجد ثلاجة بنفس الاسم</string>
+    <string name="method_add">اختر طريقة لإضافة المنتج</string>
+    <string name="grocery_list">قائمة المنتجات %1$s</string>
+    <string name="delete_product">حذف المنتج</string>
+    <string name="popup_mssg">هل أنت متأكد أنك تريد حذف هذا البند؟</string>
+    <string name="yes">نعم</string>
+    <string name="cancel">يلغي</string>
+    <string name="notif_title">منتج واحد أو أكثر على وشك الانتهاء!</string>
+    <string name="notif_text">ننصحك بالتحقق من تاريخ انتهاء صلاحية منتجاتك.</string>
+    <string-array name="languages">
+        <item>🇺🇸  الإنجليزية</item>
+        <item>🇸🇦  عربي</item>
+        <item>🇫🇷  فرنسي</item>
+        <item>🇮🇹  ايطالي</item>
+    </string-array>
+    <string name="log_out">تسجيل خروج</string>
+</resources>

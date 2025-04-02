@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WIMF</string>
+    <string name="log_in">Login</string>
+    <string name="welcom_mssg">Benvenuti in W.I.M.F</string>
+    <string name="intro_mssg">\"What’s in My Fridge\" è un\'applicazione intuitiva progettata per aiutarti a gestire e organizzare in modo efficiente il contenuto del tuo frigorifero.</string>
+    <string name="fridge_name">Nome del frigorifero</string>
+    <string name="insert_fridge">Inserisci il nome del frigorifero</string>
+    <string name="descrip">Descrizione</string>
+    <string name="description">Descrizione del frigorifero</string>
+    <string name="add">Aggiungere</string>
+    <string name="delete">Eliminare</string>
+    <string name="fridge_list">Elenco Frigoriferi:</string>
+    <string name="barcode">Codice a barre</string>
+    <string name="product_name">Nome del prodotto</string>
+    <string name="exp_date">Data di scadenza</string>
+    <string name="select_date">Seleziona Data</string>
+    <string name="quantity">Quantità</string>
+    <string name="scan_barcode">Scansiona un codice a barre</string>
+    <string name="manual_entry">Inserisci i dati manualmente</string>
+    <string name="barcode_entry">Scansiona il codice a barre</string>
+    <string name="product_list">Elenco prodotti</string>
+    <string name="add_product">Aggiungi prodotto</string>
+    <string name="update">Aggiornare</string>
+    <string name="update_fridge">Aggiorna frigorifero</string>
+    <string name="add_fridge">Aggiungi frigorifero</string>
+    <string name="fridge_exist">Un frigorifero con lo stesso nome esiste già</string>
+    <string name="method_add">Scegli il metodo per aggiungere il prodotto</string>
+    <string name="grocery_list">Lista della spesa di %1$s</string>
+    <string name="delete_product">eliminare il prodotto</string>
+    <string name="popup_mssg">Sei sicuro di voler eliminare questo articolo?</string>
+    <string name="yes">SÌ</string>
+    <string name="cancel">Annulla</string>
+    <string name="notif_title">Uno o più prodotti stanno per scadere!</string>
+    <string name="notif_text">ti consigliamo di controllare la data di scadenza dei tuoi prodotti.</string>
+    <string-array name="languages">
+        <item>🇺🇸  Inglese</item>
+        <item>🇸🇦  Arabo</item>
+        <item>🇫🇷  Francese</item>
+        <item>🇮🇹  Italiano</item>
+    </string-array>
+    <string name="log_out">Disconnettersi</string>
+</resources>

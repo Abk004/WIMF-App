@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Fridges List: "
+        android:text="@string/fridge_list"
         android:textSize="24sp"
         android:textStyle="bold" />
 

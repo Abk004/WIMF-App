@@ -50,7 +50,7 @@ class GroceryAddBarCode : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Initialize your image analyzer here or any other necessary setup
+
     }
 
     private fun iniBarCode() {
@@ -105,8 +105,6 @@ class GroceryAddBarCode : Fragment() {
                         intentData = barcodes.valueAt(0).displayValue
                         binding.barcodeResult.text = intentData
 
-                        // check in database
-                        // bring to add fragment with database result as bundle data
 
                         db.collection("barcodes").document(intentData).get()
                             .addOnSuccessListener {
